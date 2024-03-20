@@ -1,0 +1,54 @@
+import java.awt.*;
+import javax.swing.*;
+public class Test
+{
+	JFrame f1;
+	JPanel p1;
+	JLabel l1;
+	Font fnt;
+	public Test()
+	{
+		f1=new JFrame("...Digital Clock...");
+
+		p1=new JPanel();
+		fnt=new Font("ArialBlack",Font.BOLD,28);
+
+
+		l1=new JLabel("Clock will come here....");
+		l1.setFont(fnt);
+		l1.setForeground(Color.red);
+
+		f1.add(p1);
+		p1.add(l1);
+
+
+		f1.setVisible(true);
+		f1.setSize(500,500);
+		f1.setLocation(200,100);
+		p1.setBackground(Color.yellow);
+		try
+		{
+			for(int h=0;h<24;h++)
+			{
+				for(int m=0;m<60;m++)
+				{
+					for(int s=0;s<60;s++)
+					{
+						l1.setText(""+h+":"+m+":"+s);
+						System.out.println(h+":"+m+":"+s);
+						Thread.sleep(1000);
+					}
+				}
+			}
+		}
+		catch(Exception e)
+		{
+
+		}
+
+	}
+	public static void main(String args[])
+	{
+		Test t1=new Test();
+	}
+}
